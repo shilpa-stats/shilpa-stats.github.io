@@ -9,13 +9,41 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Light Mode (Default) */
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #555;
+            --accent-1: #1e3c72;
+            --accent-2: #2a5298;
+            --accent-light: #e8f0fe;
+            --card-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --border-color: #e0e0e0;
+        }
+
+        /* Dark Mode */
+        body.dark {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --accent-1: #4a90e2;
+            --accent-2: #6c5ce7;
+            --accent-light: #2c3e50;
+            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            --border-color: #2c3e50;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #2c3e50;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            transition: all 0.3s;
         }
 
         .container {
@@ -24,9 +52,66 @@
             padding: 0 20px;
         }
 
-        /* Header / Hero Section */
+        /* Navbar */
+        .navbar {
+            background: var(--bg-secondary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-2);
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            background: var(--accent-light);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
             color: white;
             padding: 80px 0 60px;
             text-align: center;
@@ -35,17 +120,13 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 10px;
+            animation: fadeInUp 0.8s ease;
         }
 
         .hero .tagline {
             font-size: 1.3rem;
             opacity: 0.9;
             margin-bottom: 20px;
-        }
-
-        .hero .location {
-            font-size: 1rem;
-            opacity: 0.8;
         }
 
         /* Stats Cards */
@@ -59,12 +140,13 @@
         }
 
         .stat-card {
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 12px;
             padding: 25px 40px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: var(--card-shadow);
             transition: transform 0.3s;
+            cursor: pointer;
         }
 
         .stat-card:hover {
@@ -74,59 +156,35 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #2a5298;
+            color: var(--accent-2);
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 50px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #1e3c72;
-            text-align: center;
-        }
-
-        /* About Me */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        /* Skills Grid */
-        .skills-grid {
+        /* Filter Buttons */
+        .filter-buttons {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
-        .skill-badge {
-            background: #e8f0fe;
-            color: #1e3c72;
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-weight: 500;
-            font-size: 1rem;
+        .filter-btn {
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-2);
+            color: var(--accent-2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
-        /* Projects */
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent-2);
+            color: white;
+        }
+
+        /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -135,11 +193,12 @@
         }
 
         .project-card {
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: var(--card-shadow);
             transition: transform 0.3s;
+            animation: fadeInUp 0.6s ease;
         }
 
         .project-card:hover {
@@ -154,24 +213,24 @@
             font-size: 1.3rem;
             font-weight: bold;
             margin-bottom: 10px;
-            color: #1e3c72;
+            color: var(--accent-1);
         }
 
         .project-tech {
-            color: #2a5298;
+            color: var(--accent-2);
             font-size: 0.85rem;
             margin-bottom: 12px;
             font-weight: 500;
         }
 
         .project-desc {
-            color: #555;
+            color: var(--text-secondary);
             margin-bottom: 15px;
             font-size: 0.95rem;
         }
 
         .project-link {
-            color: #2a5298;
+            color: var(--accent-2);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
@@ -179,139 +238,135 @@
             gap: 5px;
         }
 
-        .project-link:hover {
-            text-decoration: underline;
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 30px auto 0;
+            background: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 12px;
         }
 
-        /* Experience & Virtual Experience */
-        .experience-item, .virtual-item {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
+        .form-group {
             margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .exp-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #1e3c72;
-            margin-bottom: 5px;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
         }
 
-        .exp-company {
-            color: #2a5298;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .exp-date {
-            color: #888;
-            font-size: 0.85rem;
-            margin-bottom: 12px;
-        }
-
-        .exp-desc {
-            color: #555;
-            margin-left: 20px;
-            list-style-type: disc;
-        }
-
-        .exp-desc li {
-            margin-bottom: 8px;
-        }
-
-        /* Education & Certs */
-        .edu-cert-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .info-box {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .info-box h3 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-        }
-
-        .info-item {
-            margin-bottom: 12px;
-        }
-
-        /* Contact */
-        .contact {
-            text-align: center;
-            background: #1e3c72;
+        .submit-btn {
+            background: var(--accent-2);
             color: white;
-            padding: 60px 0;
-        }
-
-        .contact h2 {
-            margin-bottom: 20px;
-        }
-
-        .contact p {
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            background: white;
-            color: #1e3c72;
             padding: 12px 30px;
-            border-radius: 40px;
-            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
             font-weight: 600;
             transition: transform 0.3s;
-            display: inline-block;
         }
 
-        .contact-btn:hover {
+        .submit-btn:hover {
             transform: scale(1.05);
-            background: #f0f0f0;
         }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #f1f1f1;
-            font-size: 0.85rem;
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1.2rem;
         }
 
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
             .hero h1 { font-size: 2rem; }
-            .stats { gap: 15px; }
-            .stat-card { padding: 15px 25px; }
-            .edu-cert-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">Shilpa S</div>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Dark/Light</button>
+        </div>
+    </div>
+</nav>
+
 <!-- Hero Section -->
-<div class="hero">
+<div class="hero" id="home">
     <div class="container">
         <h1>Shilpa S</h1>
         <div class="tagline">Data Analyst | MSc Statistics</div>
         <div class="location">Kerala, India</div>
+        <button class="filter-btn" onclick="downloadResume()" style="margin-top: 20px; background: white; color: #1e3c72;">📄 Download Resume</button>
     </div>
 </div>
 
-<!-- Stats Cards -->
+<!-- Stats -->
 <div class="container">
     <div class="stats">
         <div class="stat-card">
@@ -320,11 +375,11 @@
         </div>
         <div class="stat-card">
             <div class="stat-number">3</div>
-            <div class="stat-label">Virtual Experiences</div>
+            <div class="stat-label">Virtual Exp.</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">5+</div>
-            <div class="stat-label">Tools & Languages</div>
+            <div class="stat-label">Tools</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">1</div>
@@ -333,149 +388,311 @@
     </div>
 </div>
 
-<!-- About Me -->
-<div class="container section">
+<!-- About -->
+<div class="container section" id="about">
     <h2 class="section-title">About Me</h2>
     <div class="about-content">
-        <p>Hi, I'm Shilpa — an MSc Statistics graduate with practical experience in data analysis, statistical modeling, machine learning, and business intelligence tools. I'm skilled in Python, SQL, Power BI, Tableau, and Excel, with a strong track record of handling large datasets and developing data-driven solutions through academic projects, virtual simulations, and my internship experience. I love transforming raw data into actionable insights that drive smarter decisions. Eager to bring my analytical mindset to a dynamic team!</p>
+        <p>Hi, I'm Shilpa — an MSc Statistics graduate passionate about transforming data into actionable insights. I specialize in Python, SQL, Power BI, Tableau, and statistical modeling. With hands-on experience in machine learning, time series forecasting, and data visualization, I help businesses make data-driven decisions. I'm eager to bring my analytical skills to a dynamic team!</p>
     </div>
-</div>
-
-<!-- Key Skills -->
-<div class="container section">
-    <h2 class="section-title">Key Skills</h2>
     <div class="skills-grid">
-        <span class="skill-badge">Python</span>
-        <span class="skill-badge">SQL (MySQL, PSQL)</span>
-        <span class="skill-badge">Power BI</span>
-        <span class="skill-badge">Tableau</span>
-        <span class="skill-badge">Advanced Excel</span>
-        <span class="skill-badge">R</span>
-        <span class="skill-badge">Statistical Modeling</span>
-        <span class="skill-badge">Time Series Forecasting</span>
-        <span class="skill-badge">Machine Learning</span>
-        <span class="skill-badge">Data Visualization</span>
-        <span class="skill-badge">Power Query</span>
+        <span class="skill-badge">🐍 Python</span>
+        <span class="skill-badge">📊 Power BI</span>
+        <span class="skill-badge">🗄️ SQL</span>
+        <span class="skill-badge">📈 Tableau</span>
+        <span class="skill-badge">📉 R</span>
+        <span class="skill-badge">🤖 Machine Learning</span>
     </div>
 </div>
 
-<!-- Projects Section -->
-<div class="container section">
+<!-- Projects with Filter -->
+<div class="container section" id="projects">
     <h2 class="section-title">My Projects</h2>
-    <div class="projects-grid">
-        <div class="project-card">
-            <div class="project-info">
-                <div class="project-title">Rice Yield Time Series Forecasting</div>
-                <div class="project-tech">R, ARIMA, Time Series Analysis</div>
-                <div class="project-desc">Processed 22 years of crop yield data, developed ARIMA model reducing prediction error by 19%, detected 2018 flood anomaly via outlier detection. Evaluated using RMSE, MAE, MAPE.</div>
-                <a href="#" class="project-link">GitHub →</a>
-            </div>
-        </div>
-        <div class="project-card">
-            <div class="project-info">
-                <div class="project-title">Retail Store Trial Performance</div>
-                <div class="project-tech">Python, Pandas, Statistical Testing</div>
-                <div class="project-desc">Analyzed 260K+ transactions, identified control stores via correlation, quantified 33% sales uplift using statistical tests, delivered business recommendations.</div>
-                <a href="#" class="project-link">GitHub →</a>
-            </div>
-        </div>
-        <div class="project-card">
-            <div class="project-info">
-                <div class="project-title">Inventory & Supply Chain Dashboard</div>
-                <div class="project-tech">Power BI, Excel</div>
-                <div class="project-desc">Built interactive Power BI dashboard tracking inventory KPIs, turnover metrics, lead time, and regional performance with KPI cards and filters.</div>
-                <a href="#" class="project-link">GitHub →</a>
-            </div>
-        </div>
+    <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+        <button class="filter-btn" onclick="filterProjects('python')">🐍 Python</button>
+        <button class="filter-btn" onclick="filterProjects('powerbi')">📊 Power BI</button>
+        <button class="filter-btn" onclick="filterProjects('r')">📉 R</button>
+    </div>
+    <div class="projects-grid" id="projectsGrid">
+        <!-- Projects will be populated by JavaScript -->
     </div>
 </div>
 
-<!-- Experience Section -->
-<div class="container section">
-    <h2 class="section-title">My Experience</h2>
-    
+<!-- Experience -->
+<div class="container section" id="experience">
+    <h2 class="section-title">Experience</h2>
     <div class="experience-item">
         <div class="exp-title">Research and IT Solutions Intern</div>
         <div class="exp-company">ICT Academy of Kerala</div>
-        <div class="exp-date">Sept 2025 - Jan 2026 | Kerala, India</div>
+        <div class="exp-date">Sept 2025 - Jan 2026</div>
         <ul class="exp-desc">
-            <li>Implemented training analytics dashboards using Power BI and Python covering 180+ programs and 27 trainers</li>
-            <li>Designed 10+ KPIs to track learner progress and faculty performance</li>
-            <li>Cleaned, transformed, and modeled datasets using Power Query</li>
-            <li>Created interactive visual reports to support training performance monitoring</li>
+            <li>Built Power BI dashboards tracking 180+ programs and 27 trainers</li>
+            <li>Designed 10+ KPIs for learner progress and faculty performance</li>
+            <li>Cleaned datasets using Power Query, created interactive reports</li>
         </ul>
     </div>
-
-    <h3 style="margin: 30px 0 20px; color:#1e3c72;">Virtual Experience</h3>
-    
     <div class="virtual-item">
-        <div class="exp-title">British Airways Data Science Virtual Experience</div>
-        <div class="exp-company">Forage (Remote) - 2026</div>
+        <div class="exp-title">British Airways Data Science (Forage)</div>
+        <div class="exp-date">2026</div>
         <ul class="exp-desc">
-            <li>Trained Random Forest on 50K+ customer records achieving ~85% prediction accuracy</li>
-            <li>Executed preprocessing & feature engineering on 10+ variables</li>
-            <li>Identified key booking drivers: purchase lead time, route, length of stay</li>
-            <li>Conducted 5-fold cross-validation for customer conversion insights</li>
+            <li>Random Forest model on 50K+ records → 85% accuracy</li>
+            <li>Identified key booking drivers: lead time, route, stay length</li>
         </ul>
     </div>
-
     <div class="virtual-item">
-        <div class="exp-title">Lloyds Banking Group Data Science Virtual Experience</div>
-        <div class="exp-company">Forage (Remote) - March 2026</div>
+        <div class="exp-title">Lloyds Banking Group (Forage)</div>
+        <div class="exp-date">2026</div>
         <ul class="exp-desc">
-            <li>Performed EDA on banking datasets to identify churn indicators</li>
-            <li>Developed Logistic Regression & Random Forest models (78% accuracy)</li>
-            <li>Engineered 10+ predictive features, used ROC-AUC, precision, recall</li>
-            <li>Generated churn driver insights for retention strategies</li>
-        </ul>
-    </div>
-
-    <div class="virtual-item">
-        <div class="exp-title">Tata Data Analytics Virtual Experience</div>
-        <div class="exp-company">Forage (Remote) - Feb 2026</div>
-        <ul class="exp-desc">
-            <li>Cleaned & validated 500K+ retail transaction records</li>
-            <li>Performed revenue trend analysis across 12 months, identified seasonal patterns</li>
-            <li>Found top 10 revenue-generating countries/customers</li>
-            <li>Developed Excel visualizations for business insights</li>
+            <li>Logistic Regression & Random Forest → 78% accuracy</li>
+            <li>Engineered 10+ features, identified churn drivers</li>
         </ul>
     </div>
 </div>
 
-<!-- Education & Certifications -->
-<div class="container section">
-    <h2 class="section-title">Education & Certifications</h2>
-    <div class="edu-cert-grid">
-        <div class="info-box">
-            <h3>🎓 Education</h3>
-            <div class="info-item"><strong>Master of Science in Statistics</strong><br>University of Kerala | Aug 2023 - July 2025</div>
-            <div class="info-item"><strong>Bachelor of Science in Statistics</strong><br>University of Kerala</div>
-        </div>
-        <div class="info-box">
-            <h3>📜 Certifications</h3>
-            <div class="info-item">✅ Microsoft Power BI Data Analyst Professional Certificate - Microsoft (2026)</div>
-            <div class="info-item">✅ Certified Specialist in Data Science & Analytics - ICT Academy Kerala (2025)</div>
-            <div class="info-item">✅ Tableau 10 Essential Training - LinkedIn Learning (2025)</div>
-        </div>
+<!-- Contact Form -->
+<div class="container section" id="contact">
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="contact-form">
+        <form id="contactForm">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message ✉️</button>
+        </form>
     </div>
 </div>
 
-<!-- Contact Section -->
-<div class="contact">
-    <div class="container">
-        <h2>Let's Connect</h2>
-        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your data-driven journey.</p>
-        <div class="contact-links">
-            <a href="#" class="contact-btn">📧 shilpa.s@email.com</a>
-            <a href="#" class="contact-btn">🔗 LinkedIn</a>
-            <a href="#" class="contact-btn">🐙 GitHub</a>
-        </div>
-    </div>
-</div>
+<!-- Scroll to Top -->
+<button class="scroll-top" onclick="scrollToTop()">↑</button>
 
-<footer>
-    <p>© 2026 Shilpa S | Data Analyst Portfolio</p>
-</footer>
+<script>
+    // Projects Data
+    const projects = [
+        {
+            title: "Rice Yield Time Series Forecasting",
+            tech: "R, ARIMA, Time Series",
+            desc: "Processed 22 years of crop data, ARIMA model reduced error by 19%, detected flood anomaly",
+            link: "https://github.com/yourusername/rice-forecasting",
+            category: "r"
+        },
+        {
+            title: "Retail Store Trial Performance",
+            tech: "Python, Pandas, Statistics",
+            desc: "Analyzed 260K+ transactions, 33% sales uplift identified via statistical testing",
+            link: "https://github.com/yourusername/retail-analysis",
+            category: "python"
+        },
+        {
+            title: "Inventory & Supply Chain Dashboard",
+            tech: "Power BI, Excel",
+            desc: "Interactive dashboard tracking KPIs, turnover metrics, regional performance",
+            link: "https://github.com/yourusername/inventory-dashboard",
+            category: "powerbi"
+        },
+        {
+            title: "Customer Churn Prediction",
+            tech: "Python, Random Forest, Logistic Regression",
+            desc: "78% accuracy predicting churn, engineered 10+ features, ROC-AUC analysis",
+            link: "https://github.com/yourusername/churn-prediction",
+            category: "python"
+        }
+    ];
 
+    // Display Projects
+    function displayProjects(category) {
+        const grid = document.getElementById('projectsGrid');
+        const filtered = category === 'all' ? projects : projects.filter(p => p.category === category);
+        
+        grid.innerHTML = filtered.map(project => `
+            <div class="project-card">
+                <div class="project-info">
+                    <div class="project-title">${project.title}</div>
+                    <div class="project-tech">${project.tech}</div>
+                    <div class="project-desc">${project.desc}</div>
+                    <a href="${project.link}" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Filter Projects
+    function filterProjects(category) {
+        displayProjects(category);
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText === 'All')) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
+    // Dark Mode Toggle
+    function toggleTheme() {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+    }
+
+    // Mobile Menu
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // Scroll to Top
+    window.addEventListener('scroll', () => {
+        const scrollBtn = document.querySelector('.scroll-top');
+        if (window.scrollY > 300) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    });
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Smooth Scroll for Nav Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            }
+        });
+    });
+
+    // Download Resume
+    function downloadResume() {
+        // Create a downloadable text version of your resume
+        const resumeText = `Shilpa S - Data Analyst Resume
+        
+MSc Statistics graduate with expertise in Python, SQL, Power BI, Tableau, R, and Excel.
+
+Experience:
+- ICT Academy of Kerala Intern: Built Power BI dashboards, designed KPIs
+- British Airways Virtual: Random Forest model with 85% accuracy
+- Lloyds Banking Group: Churn prediction with 78% accuracy
+
+Projects:
+- Rice Yield Forecasting (R, ARIMA)
+- Retail Store Analysis (Python, Statistics)
+- Inventory Dashboard (Power BI)
+
+Contact: shilpa.s@email.com | LinkedIn: linkedin.com/in/shilpa-s`;
+        
+        const blob = new Blob([resumeText], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Shilpa_S_Resume.txt';
+        link.click();
+        URL.revokeObjectURL(link.href);
+        
+        alert("Resume downloaded! You can replace this with your actual PDF later.");
+    }
+
+    // Contact Form Submit
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert("Thanks for reaching out! I'll get back to you soon. 📧");
+        this.reset();
+    });
+
+    // Initialize
+    displayProjects('all');
+</script>
+
+<style>
+    /* Additional styles for new elements */
+    .section {
+        padding: 50px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: var(--accent-1);
+        text-align: center;
+    }
+
+    .about-content {
+        max-width: 800px;
+        margin: 0 auto 30px;
+        text-align: center;
+        font-size: 1.1rem;
+        background: var(--bg-secondary);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: var(--card-shadow);
+    }
+
+    .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .skill-badge {
+        background: var(--accent-light);
+        color: var(--accent-1);
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    .experience-item, .virtual-item {
+        background: var(--bg-secondary);
+        padding: 25px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        box-shadow: var(--card-shadow);
+    }
+
+    .exp-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--accent-1);
+        margin-bottom: 5px;
+    }
+
+    .exp-company {
+        color: var(--accent-2);
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .exp-date {
+        color: #888;
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    .exp-desc {
+        color: var(--text-secondary);
+        margin-left: 20px;
+    }
+
+    .exp-desc li {
+        margin-bottom: 8px;
+    }
+</style>
 </body>
 </html>
