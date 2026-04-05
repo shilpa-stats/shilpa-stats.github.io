@@ -43,7 +43,6 @@
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
-            transition: all 0.3s;
         }
 
         .container {
@@ -59,7 +58,6 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -92,7 +90,6 @@
             color: var(--accent-2);
         }
 
-        /* Dark Mode Toggle */
         .theme-toggle {
             background: var(--accent-light);
             border: none;
@@ -109,24 +106,68 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero Section - Left Aligned with Photo */
         .hero {
             background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
             color: white;
-            padding: 80px 0 60px;
-            text-align: center;
+            padding: 60px 0;
         }
 
-        .hero h1 {
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-photo {
+            flex-shrink: 0;
+        }
+
+        .hero-photo img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
             font-size: 3rem;
             margin-bottom: 10px;
-            animation: fadeInUp 0.8s ease;
         }
 
-        .hero .tagline {
+        .hero-text .tagline {
             font-size: 1.3rem;
             opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .hero-text .location {
+            font-size: 1rem;
+            opacity: 0.8;
             margin-bottom: 20px;
+        }
+
+        .download-btn {
+            background: white;
+            color: var(--accent-2);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
         }
 
         /* Stats Cards */
@@ -146,7 +187,6 @@
             text-align: center;
             box-shadow: var(--card-shadow);
             transition: transform 0.3s;
-            cursor: pointer;
         }
 
         .stat-card:hover {
@@ -159,35 +199,52 @@
             color: var(--accent-2);
         }
 
-        /* Filter Buttons */
-        .filter-buttons {
+        /* Section Styles */
+        .section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--accent-1);
+            text-align: center;
+        }
+
+        /* About Me */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            background: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .skills-grid {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
+            margin-top: 30px;
         }
 
-        .filter-btn {
-            background: var(--bg-secondary);
-            border: 2px solid var(--accent-2);
-            color: var(--accent-2);
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--accent-2);
-            color: white;
+        .skill-badge {
+            background: var(--accent-light);
+            color: var(--accent-1);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1rem;
         }
 
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 20px;
         }
@@ -197,87 +254,234 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
+            cursor: pointer;
             transition: transform 0.3s;
-            animation: fadeInUp 0.6s ease;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
         }
 
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
         .project-info {
-            padding: 25px;
+            padding: 20px;
         }
 
         .project-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--accent-1);
         }
 
         .project-tech {
             color: var(--accent-2);
             font-size: 0.85rem;
-            margin-bottom: 12px;
             font-weight: 500;
         }
 
-        .project-desc {
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+        /* Certificates Grid */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
-        .project-link {
-            color: var(--accent-2);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 30px auto 0;
+        .cert-card {
             background: var(--bg-secondary);
-            padding: 30px;
             border-radius: 12px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: inherit;
-        }
-
-        .submit-btn {
-            background: var(--accent-2);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
             transition: transform 0.3s;
         }
 
-        .submit-btn:hover {
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .cert-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--accent-1);
+        }
+
+        .cert-issuer {
+            color: var(--accent-2);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .cert-date {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        /* Experience */
+        .experience-item, .virtual-item {
+            background: var(--bg-secondary);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .exp-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-1);
+            margin-bottom: 5px;
+        }
+
+        .exp-company {
+            color: var(--accent-2);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .exp-date {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .exp-desc {
+            color: var(--text-secondary);
+            margin-left: 20px;
+        }
+
+        .exp-desc li {
+            margin-bottom: 8px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--accent-1);
+            margin-bottom: 15px;
+        }
+
+        .modal-tech {
+            color: var(--accent-2);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .modal-desc {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-details {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .modal-details li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .modal-details li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-2);
+        }
+
+        .modal-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent-2);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            background: var(--accent-1);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-btn {
+            background: white;
+            color: var(--accent-1);
+            padding: 12px 25px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .contact-btn:hover {
             transform: scale(1.05);
         }
 
-        /* Scroll to Top Button */
+        /* Scroll Top */
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -296,6 +500,7 @@
             transition: all 0.3s;
             border: none;
             font-size: 1.2rem;
+            z-index: 1000;
         }
 
         .scroll-top.show {
@@ -303,19 +508,13 @@
             visibility: visible;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: var(--bg-secondary);
+            font-size: 0.85rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
@@ -334,7 +533,19 @@
             .nav-links.active {
                 display: flex;
             }
-            .hero h1 { font-size: 2rem; }
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .stats {
+                gap: 15px;
+            }
+            .stat-card {
+                padding: 15px 25px;
+            }
         }
     </style>
 </head>
@@ -349,20 +560,27 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
             <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
-            <button class="theme-toggle" onclick="toggleTheme()">🌓 Dark/Light</button>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
         </div>
     </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Hero Section with Photo on Left -->
 <div class="hero" id="home">
-    <div class="container">
-        <h1>Shilpa S</h1>
-        <div class="tagline">Data Analyst | MSc Statistics</div>
-        <div class="location">Kerala, India</div>
-        <button class="filter-btn" onclick="downloadResume()" style="margin-top: 20px; background: white; color: #1e3c72;">📄 Download Resume</button>
+    <div class="container hero-content">
+        <div class="hero-photo">
+            <!-- Replace 'your-photo.jpg' with your actual photo file name -->
+            <img src="https://via.placeholder.com/180x180/4a90e2/white?text=SHILPA" alt="Shilpa S" id="profilePhoto">
+        </div>
+        <div class="hero-text">
+            <h1>Shilpa S</h1>
+            <div class="tagline">Data Analyst | MSc Statistics</div>
+            <div class="location">📍 Kerala, India</div>
+            <button class="download-btn" onclick="downloadResume()">📄 Download Resume</button>
+        </div>
     </div>
 </div>
 
@@ -378,12 +596,12 @@
             <div class="stat-label">Virtual Exp.</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">5+</div>
+            <div class="stat-number">7+</div>
             <div class="stat-label">Tools</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Internship</div>
+            <div class="stat-number">3</div>
+            <div class="stat-label">Certifications</div>
         </div>
     </div>
 </div>
@@ -400,136 +618,239 @@
         <span class="skill-badge">🗄️ SQL</span>
         <span class="skill-badge">📈 Tableau</span>
         <span class="skill-badge">📉 R</span>
-        <span class="skill-badge">🤖 Machine Learning</span>
+        <span class="skill-badge">🤖 ML</span>
+        <span class="skill-badge">📐 Statistics</span>
     </div>
 </div>
 
-<!-- Projects with Filter -->
+<!-- Projects -->
 <div class="container section" id="projects">
     <h2 class="section-title">My Projects</h2>
-    <div class="filter-buttons">
-        <button class="filter-btn active" onclick="filterProjects('all')">All</button>
-        <button class="filter-btn" onclick="filterProjects('python')">🐍 Python</button>
-        <button class="filter-btn" onclick="filterProjects('powerbi')">📊 Power BI</button>
-        <button class="filter-btn" onclick="filterProjects('r')">📉 R</button>
-    </div>
-    <div class="projects-grid" id="projectsGrid">
-        <!-- Projects will be populated by JavaScript -->
-    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+</div>
+
+<!-- Certificates Section -->
+<div class="container section" id="certificates">
+    <h2 class="section-title">📜 Certifications</h2>
+    <div class="certificates-grid" id="certificatesGrid"></div>
 </div>
 
 <!-- Experience -->
 <div class="container section" id="experience">
     <h2 class="section-title">Experience</h2>
+    
     <div class="experience-item">
         <div class="exp-title">Research and IT Solutions Intern</div>
         <div class="exp-company">ICT Academy of Kerala</div>
-        <div class="exp-date">Sept 2025 - Jan 2026</div>
+        <div class="exp-date">Sept 2025 - Jan 2026 | Kerala, India</div>
         <ul class="exp-desc">
-            <li>Built Power BI dashboards tracking 180+ programs and 27 trainers</li>
-            <li>Designed 10+ KPIs for learner progress and faculty performance</li>
-            <li>Cleaned datasets using Power Query, created interactive reports</li>
+            <li>Implemented training analytics dashboards using Power BI and Python covering 180+ programs and 27 trainers</li>
+            <li>Designed 10+ KPIs to track learner progress and faculty performance</li>
+            <li>Cleaned, transformed and modeled datasets using Power Query</li>
+            <li>Created interactive visual reports to support training performance monitoring</li>
         </ul>
     </div>
+
+    <h3 style="margin: 30px 0 20px; color: var(--accent-1);">💻 Virtual Experience</h3>
+    
     <div class="virtual-item">
-        <div class="exp-title">British Airways Data Science (Forage)</div>
-        <div class="exp-date">2026</div>
+        <div class="exp-title">British Airways Data Science Virtual Experience</div>
+        <div class="exp-company">Forage (Remote) - 2026</div>
         <ul class="exp-desc">
-            <li>Random Forest model on 50K+ records → 85% accuracy</li>
-            <li>Identified key booking drivers: lead time, route, stay length</li>
+            <li>Trained Random Forest on 50K+ customer records achieving ~85% prediction accuracy</li>
+            <li>Identified key booking drivers: purchase lead time, route, length of stay</li>
+            <li>Conducted 5-fold cross-validation for customer conversion insights</li>
         </ul>
     </div>
+
     <div class="virtual-item">
-        <div class="exp-title">Lloyds Banking Group (Forage)</div>
-        <div class="exp-date">2026</div>
+        <div class="exp-title">Lloyds Banking Group Data Science Virtual Experience</div>
+        <div class="exp-company">Forage (Remote) - March 2026</div>
         <ul class="exp-desc">
-            <li>Logistic Regression & Random Forest → 78% accuracy</li>
-            <li>Engineered 10+ features, identified churn drivers</li>
+            <li>Developed Logistic Regression & Random Forest models (78% accuracy)</li>
+            <li>Engineered 10+ predictive features, used ROC-AUC, precision, recall</li>
+            <li>Generated churn driver insights for retention strategies</li>
+        </ul>
+    </div>
+
+    <div class="virtual-item">
+        <div class="exp-title">Tata Data Analytics Virtual Experience</div>
+        <div class="exp-company">Forage (Remote) - Feb 2026</div>
+        <ul class="exp-desc">
+            <li>Cleaned & validated 500K+ retail transaction records</li>
+            <li>Performed revenue trend analysis across 12 months, identified seasonal patterns</li>
+            <li>Developed Excel visualizations for business insights</li>
         </ul>
     </div>
 </div>
 
-<!-- Contact Form -->
-<div class="container section" id="contact">
-    <h2 class="section-title">Let's Connect</h2>
-    <div class="contact-form">
-        <form id="contactForm">
-            <div class="form-group">
-                <input type="text" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message ✉️</button>
-        </form>
+<!-- Contact -->
+<div class="contact" id="contact">
+    <div class="container">
+        <h2>Let's Connect</h2>
+        <p>I'm always open to discussing new projects, creative ideas, or opportunities!</p>
+        <div class="contact-links">
+            <a href="mailto:shilpa.s@email.com" class="contact-btn">📧 Email Me</a>
+            <a href="#" class="contact-btn">🔗 LinkedIn</a>
+            <a href="#" class="contact-btn">🐙 GitHub</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Project Details -->
+<div class="modal" id="projectModal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-tech" id="modalTech"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <ul class="modal-details" id="modalDetails"></ul>
+        <a href="#" id="modalLink" class="modal-link" target="_blank">View on GitHub →</a>
     </div>
 </div>
 
 <!-- Scroll to Top -->
 <button class="scroll-top" onclick="scrollToTop()">↑</button>
 
+<footer>
+    <p>© 2026 Shilpa S | Data Analyst Portfolio</p>
+</footer>
+
 <script>
     // Projects Data
     const projects = [
         {
             title: "Rice Yield Time Series Forecasting",
-            tech: "R, ARIMA, Time Series",
-            desc: "Processed 22 years of crop data, ARIMA model reduced error by 19%, detected flood anomaly",
+            tech: "R, ARIMA, Time Series Analysis",
+            shortDesc: "Processed 22 years of seasonal crop yield data to identify production trends",
+            fullDesc: "This project focused on forecasting rice yield using time series analysis techniques. I processed 22 years of seasonal crop yield data to identify production trends and patterns.",
+            details: [
+                "Developed ARIMA forecasting model reducing prediction error by 19%",
+                "Evaluated models using RMSE, MAE, MAPE and Theil's U",
+                "Detected 2018 flood anomaly using outlier detection techniques",
+                "Performed comprehensive exploratory data analysis on seasonal patterns"
+            ],
             link: "https://github.com/yourusername/rice-forecasting",
-            category: "r"
+            icon: "🌾"
         },
         {
             title: "Retail Store Trial Performance",
-            tech: "Python, Pandas, Statistics",
-            desc: "Analyzed 260K+ transactions, 33% sales uplift identified via statistical testing",
+            tech: "Python, Pandas, Statistical Analysis",
+            shortDesc: "Analyzed 260K+ transactions to evaluate store layout trial impact",
+            fullDesc: "Analyzed large-scale retail transaction data to evaluate the impact of a new store layout trial on sales performance.",
+            details: [
+                "Analyzed 260K+ transactions to evaluate store layout trial impact",
+                "Identified control stores using correlation analysis",
+                "Quantified 33% sales uplift using statistical testing",
+                "Delivered data-driven business recommendations"
+            ],
             link: "https://github.com/yourusername/retail-analysis",
-            category: "python"
+            icon: "🏪"
         },
         {
             title: "Inventory & Supply Chain Dashboard",
-            tech: "Power BI, Excel",
-            desc: "Interactive dashboard tracking KPIs, turnover metrics, regional performance",
+            tech: "Power BI, Excel, Data Visualization",
+            shortDesc: "Developed interactive Power BI dashboard tracking inventory KPIs",
+            fullDesc: "Created a comprehensive Power BI dashboard for inventory and supply chain analytics to help stakeholders monitor key metrics.",
+            details: [
+                "Developed Power BI dashboard tracking inventory KPIs",
+                "Evaluated inventory turnover and lead time metrics",
+                "Developed KPI cards and interactive filters",
+                "Enabled regional performance comparison"
+            ],
             link: "https://github.com/yourusername/inventory-dashboard",
-            category: "powerbi"
+            icon: "📦"
         },
         {
             title: "Customer Churn Prediction",
-            tech: "Python, Random Forest, Logistic Regression",
-            desc: "78% accuracy predicting churn, engineered 10+ features, ROC-AUC analysis",
+            tech: "Python, Machine Learning, Random Forest",
+            shortDesc: "Predictive model to identify customers at risk of churning",
+            fullDesc: "Built machine learning models to predict customer churn for a telecommunications company, helping retention efforts.",
+            details: [
+                "Trained Random Forest classification model on 50K+ customer records achieving ~85% prediction accuracy",
+                "Executed data preprocessing and feature engineering on 10+ variables",
+                "Identified key booking drivers using feature importance analysis",
+                "Conducted 5-fold cross validation for model robustness"
+            ],
             link: "https://github.com/yourusername/churn-prediction",
-            category: "python"
+            icon: "📊"
+        }
+    ];
+
+    // Certificates Data
+    const certificates = [
+        {
+            title: "Microsoft Power BI Data Analyst Professional",
+            issuer: "Microsoft via Coursera",
+            date: "2026",
+            icon: "📊"
+        },
+        {
+            title: "Certified Specialist in Data Science & Analytics",
+            issuer: "ICT Academy of Kerala",
+            date: "2025",
+            icon: "📈"
+        },
+        {
+            title: "Tableau 10 Essential Training",
+            issuer: "LinkedIn Learning",
+            date: "2025",
+            icon: "📉"
         }
     ];
 
     // Display Projects
-    function displayProjects(category) {
+    function displayProjects() {
         const grid = document.getElementById('projectsGrid');
-        const filtered = category === 'all' ? projects : projects.filter(p => p.category === category);
-        
-        grid.innerHTML = filtered.map(project => `
-            <div class="project-card">
+        grid.innerHTML = projects.map(project => `
+            <div class="project-card" onclick="showProjectDetails(${projects.indexOf(project)})">
+                <div class="project-image">${project.icon}</div>
                 <div class="project-info">
                     <div class="project-title">${project.title}</div>
                     <div class="project-tech">${project.tech}</div>
-                    <div class="project-desc">${project.desc}</div>
-                    <a href="${project.link}" target="_blank" class="project-link">View on GitHub →</a>
                 </div>
             </div>
         `).join('');
     }
 
-    // Filter Projects
-    function filterProjects(category) {
-        displayProjects(category);
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText === 'All')) {
-                btn.classList.add('active');
-            }
-        });
+    // Show Project Details Modal
+    function showProjectDetails(index) {
+        const project = projects[index];
+        document.getElementById('modalTitle').innerText = project.title;
+        document.getElementById('modalTech').innerHTML = `🛠️ ${project.tech}`;
+        document.getElementById('modalDesc').innerHTML = project.fullDesc || project.shortDesc;
+        
+        const detailsList = document.getElementById('modalDetails');
+        detailsList.innerHTML = project.details.map(detail => `<li>${detail}</li>`).join('');
+        
+        document.getElementById('modalLink').href = project.link;
+        document.getElementById('projectModal').style.display = 'flex';
+    }
+
+    // Close Modal
+    function closeModal() {
+        document.getElementById('projectModal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('projectModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Display Certificates
+    function displayCertificates() {
+        const grid = document.getElementById('certificatesGrid');
+        grid.innerHTML = certificates.map(cert => `
+            <div class="cert-card">
+                <div class="cert-icon">${cert.icon}</div>
+                <div class="cert-title">${cert.title}</div>
+                <div class="cert-issuer">${cert.issuer}</div>
+                <div class="cert-date">${cert.date}</div>
+            </div>
+        `).join('');
     }
 
     // Dark Mode Toggle
@@ -543,7 +864,7 @@
         document.body.classList.add('dark');
     }
 
-    // Mobile Menu
+    // Mobile Menu Toggle
     function toggleMenu() {
         document.getElementById('navLinks').classList.toggle('active');
     }
@@ -562,7 +883,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Smooth Scroll for Nav Links
+    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -578,121 +899,22 @@
 
     // Download Resume
     function downloadResume() {
-        // Create a downloadable text version of your resume
-        const resumeText = `Shilpa S - Data Analyst Resume
-        
-MSc Statistics graduate with expertise in Python, SQL, Power BI, Tableau, R, and Excel.
-
-Experience:
-- ICT Academy of Kerala Intern: Built Power BI dashboards, designed KPIs
-- British Airways Virtual: Random Forest model with 85% accuracy
-- Lloyds Banking Group: Churn prediction with 78% accuracy
-
-Projects:
-- Rice Yield Forecasting (R, ARIMA)
-- Retail Store Analysis (Python, Statistics)
-- Inventory Dashboard (Power BI)
-
-Contact: shilpa.s@email.com | LinkedIn: linkedin.com/in/shilpa-s`;
-        
-        const blob = new Blob([resumeText], { type: 'text/plain' });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'Shilpa_S_Resume.txt';
-        link.click();
-        URL.revokeObjectURL(link.href);
-        
-        alert("Resume downloaded! You can replace this with your actual PDF later.");
+        // To add your actual PDF: upload your PDF file and replace the URL below
+        // window.open('Shilpa_S_Resume.pdf', '_blank');
+        alert("To add your actual resume PDF: Upload your PDF file to the same folder and update the downloadResume() function with your file name.");
     }
 
-    // Contact Form Submit
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert("Thanks for reaching out! I'll get back to you soon. 📧");
-        this.reset();
-    });
+    // Add your photo - Replace the placeholder with your actual photo
+    // To add your photo: 
+    // 1. Save your photo as 'shilpa-photo.jpg' in the same folder
+    // 2. Replace the src in the img tag below:
+    document.getElementById('profilePhoto').src = 'shilpa-photo.jpg';
+    // If the photo doesn't load, uncomment the line below and replace with your actual image path:
+    // document.getElementById('profilePhoto').src = 'your-actual-photo-filename.jpg';
 
     // Initialize
-    displayProjects('all');
+    displayProjects();
+    displayCertificates();
 </script>
-
-<style>
-    /* Additional styles for new elements */
-    .section {
-        padding: 50px 0;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 30px;
-        color: var(--accent-1);
-        text-align: center;
-    }
-
-    .about-content {
-        max-width: 800px;
-        margin: 0 auto 30px;
-        text-align: center;
-        font-size: 1.1rem;
-        background: var(--bg-secondary);
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: var(--card-shadow);
-    }
-
-    .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 20px;
-    }
-
-    .skill-badge {
-        background: var(--accent-light);
-        color: var(--accent-1);
-        padding: 10px 25px;
-        border-radius: 30px;
-        font-weight: 500;
-        font-size: 1rem;
-    }
-
-    .experience-item, .virtual-item {
-        background: var(--bg-secondary);
-        padding: 25px;
-        border-radius: 12px;
-        margin-bottom: 20px;
-        box-shadow: var(--card-shadow);
-    }
-
-    .exp-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: var(--accent-1);
-        margin-bottom: 5px;
-    }
-
-    .exp-company {
-        color: var(--accent-2);
-        font-weight: 500;
-        margin-bottom: 8px;
-    }
-
-    .exp-date {
-        color: #888;
-        font-size: 0.85rem;
-        margin-bottom: 12px;
-    }
-
-    .exp-desc {
-        color: var(--text-secondary);
-        margin-left: 20px;
-    }
-
-    .exp-desc li {
-        margin-bottom: 8px;
-    }
-</style>
 </body>
 </html>
