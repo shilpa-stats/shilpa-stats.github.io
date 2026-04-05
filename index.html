@@ -1,119 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shilpa S | Data Analyst</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-body{font-family:Poppins, sans-serif;margin:0;background:#f5f7fb;color:#222}
-header{background:#0b3d91;color:white;padding:40px;text-align:center}
-section{padding:40px;max-width:1000px;margin:auto}
-img{border-radius:50%;width:180px}
-.hero{display:flex;align-items:center;gap:40px;justify-content:center;flex-wrap:wrap}
-.card{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.08);margin:20px 0}
-.skills span{background:#e3ecff;padding:8px 14px;border-radius:20px;margin:5px;display:inline-block}
-button{background:#0b3d91;color:white;border:none;padding:12px 20px;border-radius:6px;margin:10px;cursor:pointer}
-footer{background:#0b3d91;color:white;text-align:center;padding:20px}
-a{color:#0b3d91;text-decoration:none}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shilpa S - Data Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .hero .location {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Stats Cards */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: -30px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 40px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2a5298;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 50px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1e3c72;
+            text-align: center;
+        }
+
+        /* About Me */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-badge {
+            background: #e8f0fe;
+            color: #1e3c72;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1e3c72;
+        }
+
+        .project-tech {
+            color: #2a5298;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .project-desc {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .project-link {
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Experience & Virtual Experience */
+        .experience-item, .virtual-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .exp-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+
+        .exp-company {
+            color: #2a5298;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .exp-date {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .exp-desc {
+            color: #555;
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+
+        .exp-desc li {
+            margin-bottom: 8px;
+        }
+
+        /* Education & Certs */
+        .edu-cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-box h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            background: #1e3c72;
+            color: white;
+            padding: 60px 0;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: white;
+            color: #1e3c72;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+            background: #f0f0f0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #f1f1f1;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats { gap: 15px; }
+            .stat-card { padding: 15px 25px; }
+            .edu-cert-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-<h1>Shilpa S</h1>
-<h3>Data Analyst | MSc Statistics | Data Science Specialist</h3>
-<a href="Shilpa_Data_Analyst_Resume.pdf" download>
-<button>Download Resume</button>
-</a>
-</header>
-
-<section class="hero">
-<img src="profile.png" alt="Shilpa photo">
-<div>
-<h2>About Me</h2>
-<p>MSc Statistics graduate with experience in data analysis, statistical modelling, machine learning and dashboard development. Skilled in Python, SQL, Power BI, Tableau and R. Passionate about transforming data into actionable insights.</p>
-</div>
-</section>
-
-<section>
-<h2>Skills</h2>
-<div class="skills">
-<span>Python</span>
-<span>R</span>
-<span>SQL</span>
-<span>Power BI</span>
-<span>Tableau</span>
-<span>Excel</span>
-<span>Machine Learning</span>
-<span>Forecasting</span>
-</div>
-</section>
-
-<section>
-<h2>Experience</h2>
-<div class="card">
-<h3>Data Science Intern – ICT Academy of Kerala</h3>
-<p>Built Power BI dashboards analysing 180+ training programs and created 10+ KPIs for performance tracking.</p>
-</div>
-</section>
-
-<section>
-<h2>Projects</h2>
-
-<div class="card">
-<h3>Seasonal Rice Yield Forecasting</h3>
-<p>Developed ARIMA models on 22 years of data improving prediction accuracy by 19%.</p>
+<!-- Hero Section -->
+<div class="hero">
+    <div class="container">
+        <h1>Shilpa S</h1>
+        <div class="tagline">Data Analyst | MSc Statistics</div>
+        <div class="location">Kerala, India</div>
+    </div>
 </div>
 
-<div class="card">
-<h3>Retail Store Trial Analysis</h3>
-<p>Analysed 260K+ transactions identifying 33% sales uplift.</p>
+<!-- Stats Cards -->
+<div class="container">
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number">4+</div>
+            <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Virtual Experiences</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Tools & Languages</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Internship</div>
+        </div>
+    </div>
 </div>
 
-<div class="card">
-<h3>Inventory Analytics Dashboard</h3>
-<p>Built Power BI dashboard tracking inventory KPIs.</p>
+<!-- About Me -->
+<div class="container section">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+        <p>Hi, I'm Shilpa — an MSc Statistics graduate with practical experience in data analysis, statistical modeling, machine learning, and business intelligence tools. I'm skilled in Python, SQL, Power BI, Tableau, and Excel, with a strong track record of handling large datasets and developing data-driven solutions through academic projects, virtual simulations, and my internship experience. I love transforming raw data into actionable insights that drive smarter decisions. Eager to bring my analytical mindset to a dynamic team!</p>
+    </div>
 </div>
 
-</section>
-
-<section>
-<h2>Virtual Experience</h2>
-<div class="card">
-<h3>British Airways Data Science Simulation</h3>
-<p>Built Random Forest model achieving 85% accuracy.</p>
+<!-- Key Skills -->
+<div class="container section">
+    <h2 class="section-title">Key Skills</h2>
+    <div class="skills-grid">
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">SQL (MySQL, PSQL)</span>
+        <span class="skill-badge">Power BI</span>
+        <span class="skill-badge">Tableau</span>
+        <span class="skill-badge">Advanced Excel</span>
+        <span class="skill-badge">R</span>
+        <span class="skill-badge">Statistical Modeling</span>
+        <span class="skill-badge">Time Series Forecasting</span>
+        <span class="skill-badge">Machine Learning</span>
+        <span class="skill-badge">Data Visualization</span>
+        <span class="skill-badge">Power Query</span>
+    </div>
 </div>
 
-<div class="card">
-<h3>Lloyds Banking Group Simulation</h3>
-<p>Built churn prediction models achieving 78% accuracy.</p>
+<!-- Projects Section -->
+<div class="container section">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-info">
+                <div class="project-title">Rice Yield Time Series Forecasting</div>
+                <div class="project-tech">R, ARIMA, Time Series Analysis</div>
+                <div class="project-desc">Processed 22 years of crop yield data, developed ARIMA model reducing prediction error by 19%, detected 2018 flood anomaly via outlier detection. Evaluated using RMSE, MAE, MAPE.</div>
+                <a href="#" class="project-link">GitHub →</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-info">
+                <div class="project-title">Retail Store Trial Performance</div>
+                <div class="project-tech">Python, Pandas, Statistical Testing</div>
+                <div class="project-desc">Analyzed 260K+ transactions, identified control stores via correlation, quantified 33% sales uplift using statistical tests, delivered business recommendations.</div>
+                <a href="#" class="project-link">GitHub →</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-info">
+                <div class="project-title">Inventory & Supply Chain Dashboard</div>
+                <div class="project-tech">Power BI, Excel</div>
+                <div class="project-desc">Built interactive Power BI dashboard tracking inventory KPIs, turnover metrics, lead time, and regional performance with KPI cards and filters.</div>
+                <a href="#" class="project-link">GitHub →</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="card">
-<h3>Tata Data Analytics Simulation</h3>
-<p>Analysed 500K+ transactions to identify revenue trends.</p>
-</div>
-</section>
+<!-- Experience Section -->
+<div class="container section">
+    <h2 class="section-title">My Experience</h2>
+    
+    <div class="experience-item">
+        <div class="exp-title">Research and IT Solutions Intern</div>
+        <div class="exp-company">ICT Academy of Kerala</div>
+        <div class="exp-date">Sept 2025 - Jan 2026 | Kerala, India</div>
+        <ul class="exp-desc">
+            <li>Implemented training analytics dashboards using Power BI and Python covering 180+ programs and 27 trainers</li>
+            <li>Designed 10+ KPIs to track learner progress and faculty performance</li>
+            <li>Cleaned, transformed, and modeled datasets using Power Query</li>
+            <li>Created interactive visual reports to support training performance monitoring</li>
+        </ul>
+    </div>
 
-<section>
-<h2>Certifications</h2>
-<div class="card">
-<p>Microsoft Power BI Data Analyst Certificate</p>
-<p>Certified Specialist in Data Science – ICT Academy</p>
-<p>Tableau Essential Training</p>
-</div>
-</section>
+    <h3 style="margin: 30px 0 20px; color:#1e3c72;">Virtual Experience</h3>
+    
+    <div class="virtual-item">
+        <div class="exp-title">British Airways Data Science Virtual Experience</div>
+        <div class="exp-company">Forage (Remote) - 2026</div>
+        <ul class="exp-desc">
+            <li>Trained Random Forest on 50K+ customer records achieving ~85% prediction accuracy</li>
+            <li>Executed preprocessing & feature engineering on 10+ variables</li>
+            <li>Identified key booking drivers: purchase lead time, route, length of stay</li>
+            <li>Conducted 5-fold cross-validation for customer conversion insights</li>
+        </ul>
+    </div>
 
-<section>
-<h2>Contact</h2>
-<p>Email: shilpamurukan00@gmail.com</p>
-<p>LinkedIn: linkedin.com/in/shilpa-s-stat</p>
-<p>GitHub: github.com/shilpa-stats</p>
-</section>
+    <div class="virtual-item">
+        <div class="exp-title">Lloyds Banking Group Data Science Virtual Experience</div>
+        <div class="exp-company">Forage (Remote) - March 2026</div>
+        <ul class="exp-desc">
+            <li>Performed EDA on banking datasets to identify churn indicators</li>
+            <li>Developed Logistic Regression & Random Forest models (78% accuracy)</li>
+            <li>Engineered 10+ predictive features, used ROC-AUC, precision, recall</li>
+            <li>Generated churn driver insights for retention strategies</li>
+        </ul>
+    </div>
+
+    <div class="virtual-item">
+        <div class="exp-title">Tata Data Analytics Virtual Experience</div>
+        <div class="exp-company">Forage (Remote) - Feb 2026</div>
+        <ul class="exp-desc">
+            <li>Cleaned & validated 500K+ retail transaction records</li>
+            <li>Performed revenue trend analysis across 12 months, identified seasonal patterns</li>
+            <li>Found top 10 revenue-generating countries/customers</li>
+            <li>Developed Excel visualizations for business insights</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Education & Certifications -->
+<div class="container section">
+    <h2 class="section-title">Education & Certifications</h2>
+    <div class="edu-cert-grid">
+        <div class="info-box">
+            <h3>🎓 Education</h3>
+            <div class="info-item"><strong>Master of Science in Statistics</strong><br>University of Kerala | Aug 2023 - July 2025</div>
+            <div class="info-item"><strong>Bachelor of Science in Statistics</strong><br>University of Kerala</div>
+        </div>
+        <div class="info-box">
+            <h3>📜 Certifications</h3>
+            <div class="info-item">✅ Microsoft Power BI Data Analyst Professional Certificate - Microsoft (2026)</div>
+            <div class="info-item">✅ Certified Specialist in Data Science & Analytics - ICT Academy Kerala (2025)</div>
+            <div class="info-item">✅ Tableau 10 Essential Training - LinkedIn Learning (2025)</div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="contact">
+    <div class="container">
+        <h2>Let's Connect</h2>
+        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your data-driven journey.</p>
+        <div class="contact-links">
+            <a href="#" class="contact-btn">📧 shilpa.s@email.com</a>
+            <a href="#" class="contact-btn">🔗 LinkedIn</a>
+            <a href="#" class="contact-btn">🐙 GitHub</a>
+        </div>
+    </div>
+</div>
 
 <footer>
-<p>© 2026 Shilpa S | Data Analyst Portfolio</p>
+    <p>© 2026 Shilpa S | Data Analyst Portfolio</p>
 </footer>
 
 </body>
