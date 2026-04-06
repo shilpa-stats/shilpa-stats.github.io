@@ -86,6 +86,15 @@
             min-width: 30px;
         }
 
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
         .resume-btn {
             background: white;
             color: #1e3c72;
@@ -420,11 +429,11 @@
         <div class="contact-info">
             <div class="contact-item">
                 <span class="emoji">📧</span>
-                <span>shilpamurukan00@email.com</span>
+                <span>shilpamurukan00@gmail.com</span>
             </div>
             <div class="contact-item">
                 <span class="emoji">📱</span>
-                <span>+91 94952 52341</span>
+                <span>+91 9495252341</span>
             </div>
             <div class="contact-item">
                 <span class="emoji">📍</span>
@@ -432,11 +441,11 @@
             </div>
             <div class="contact-item">
                 <span class="emoji">🔗</span>
-                <span>www.linkedin.com/in/shilpa-s-stat</span>
+                <a href="https://www.linkedin.com/in/shilpa-s-stat" target="_blank">linkedin.com/in/shilpa-s-stat</a>
             </div>
             <div class="contact-item">
                 <span class="emoji">🐙</span>
-                <span>https://github.com/shilpa-stats</span>
+                <a href="https://github.com/shilpa-stats" target="_blank">github.com/shilpa-stats</a>
             </div>
         </div>
         
@@ -457,7 +466,7 @@
         <div class="section">
             <h2 class="section-title">Key Skills</h2>
             <div class="skills-container">
-                <span class="skill-tag">🐍Python</span>
+                <span class="skill-tag">🐍 Python</span>
                 <span class="skill-tag">📊 Power BI</span>
                 <span class="skill-tag">🗄️ SQL</span>
                 <span class="skill-tag">📈 Tableau</span>
@@ -531,9 +540,9 @@
             <h3>Let's Connect</h3>
             <p>Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your data-driven journey.</p>
             <div class="connect-buttons">
-                <a href="mailto:shilpa.s@email.com" class="connect-btn">📧 Email</a>
-                <a href="#" class="connect-btn">🔗 LinkedIn</a>
-                <a href="#" class="connect-btn">🐙 GitHub</a>
+                <a href="mailto:shilpamurukan00@gmail.com" class="connect-btn">📧 Email</a>
+                <a href="https://www.linkedin.com/in/shilpa-s-stat" target="_blank" class="connect-btn">🔗 LinkedIn</a>
+                <a href="https://github.com/shilpa-stats" target="_blank" class="connect-btn">🐙 GitHub</a>
             </div>
         </div>
     </div>
@@ -552,77 +561,81 @@
 </div>
 
 <script>
-    // Projects Data
+    // Projects Data with your actual GitHub links
     const projects = [
         {
             title: "Rice Yield Time Series Forecasting",
             tech: "R, ARIMA, Time Series Analysis",
-            shortDesc: "Processed 22 years of seasonal crop yield data to identify production trends",
+            shortDesc: "Processed 22 years of seasonal crop yield data to identify production trends and developed forecasting models.",
             details: [
                 "Developed ARIMA forecasting model reducing prediction error by 19%",
                 "Evaluated models using RMSE, MAE, MAPE and Theil's U",
-                "Detected 2018 flood anomaly using outlier detection techniques"
+                "Detected 2018 flood anomaly using outlier detection techniques",
+                "Performed comprehensive exploratory data analysis on seasonal patterns"
             ],
-            link: "https://github.com/yourusername/rice-forecasting",
+            link: "https://github.com/shilpa-stats/RICE-YIELD-FORECASTING",
             icon: "🌾"
         },
         {
-            title: "Retail Store Trial Performance",
+            title: "Retail Store Trial Performance Analysis",
             tech: "Python, Pandas, Statistical Analysis",
-            shortDesc: "Analyzed 260K+ transactions to evaluate store layout trial impact",
+            shortDesc: "Analyzed 260K+ transactions to evaluate store layout trial impact on sales performance.",
             details: [
                 "Analyzed 260K+ transactions to evaluate store layout trial impact",
                 "Identified control stores using correlation analysis",
-                "Quantified 33% sales uplift using statistical testing"
+                "Quantified 33% sales uplift using statistical testing",
+                "Delivered data-driven business recommendations for store expansion"
             ],
-            link: "https://github.com/yourusername/retail-analysis",
+            link: "https://github.com/shilpa-stats/RETAIL-ANALYTICS-PROJECT",
             icon: "🏪"
         },
         {
             title: "Inventory & Supply Chain Dashboard",
-            tech: "Power BI, Excel",
-            shortDesc: "Developed interactive Power BI dashboard tracking inventory KPIs",
+            tech: "Power BI, Excel, Data Visualization",
+            shortDesc: "Developed interactive Power BI dashboard for comprehensive inventory and supply chain analytics.",
             details: [
                 "Developed Power BI dashboard tracking inventory KPIs",
                 "Evaluated inventory turnover and lead time metrics",
-                "Enabled regional performance comparison"
+                "Created interactive KPI cards and filters for dynamic analysis",
+                "Enabled regional performance comparison for supply chain optimization"
             ],
-            link: "https://github.com/yourusername/inventory-dashboard",
+            link: "https://github.com/shilpa-stats/SUPPLY-CHAIN-INVENTORY-DASHBOARD",
             icon: "📦"
         },
         {
-            title: "Customer Churn Prediction",
-            tech: "Python, Machine Learning",
-            shortDesc: "Predictive model to identify customers at risk of churning",
+            title: "Mental Health Analysis During COVID-19",
+            tech: "Python, Data Analysis, Visualization",
+            shortDesc: "Analyzed mental health trends and patterns during the COVID-19 pandemic using statistical methods.",
             details: [
-                "Trained Random Forest on 50K+ records achieving ~85% accuracy",
-                "Executed feature engineering on 10+ variables",
-                "Conducted 5-fold cross validation for model robustness"
+                "Performed comprehensive data cleaning and preprocessing on survey data",
+                "Identified key factors affecting mental health during pandemic",
+                "Created visualizations to highlight trends and patterns",
+                "Generated insights on demographic variations in mental health impact"
             ],
-            link: "https://github.com/yourusername/churn-prediction",
-            icon: "📊"
+            link: "https://github.com/shilpa-stats/MENTAL-HEALTH-ANALYSIS-DURING-COVID",
+            icon: "🧠"
         }
     ];
 
-    // Certificates with placeholder images - Replace with your actual certificate images
+    // Certificates - Replace placeholder images with your actual certificate images
     const certificates = [
         {
             title: "Microsoft Power BI Data Analyst Professional",
             issuer: "Microsoft via Coursera",
             date: "2026",
-            image: "https://via.placeholder.com/250x160/4a90e2/white?text=Power+BI+Certificate"
+            image: "powerbi-certificate.jpg"
         },
         {
             title: "Certified Specialist in Data Science & Analytics",
             issuer: "ICT Academy of Kerala",
             date: "2025",
-            image: "https://via.placeholder.com/250x160/2a5298/white?text=Data+Science+Certificate"
+            image: "datascience-certificate.jpg"
         },
         {
             title: "Tableau 10 Essential Training",
             issuer: "LinkedIn Learning",
             date: "2025",
-            image: "https://via.placeholder.com/250x160/1e3c72/white?text=Tableau+Certificate"
+            image: "tableau-certificate.jpg"
         }
     ];
 
@@ -659,6 +672,7 @@
         document.getElementById('projectModal').style.display = 'none';
     }
 
+    // Close modal when clicking outside
     window.onclick = function(event) {
         const modal = document.getElementById('projectModal');
         if (event.target === modal) {
@@ -666,22 +680,21 @@
         }
     }
 
-    // Display Certificates with Images
+    // Display Certificates
     function displayCertificates() {
         const grid = document.getElementById('certificatesGrid');
         grid.innerHTML = certificates.map(cert => `
             <div class="cert-card">
-                <img class="cert-image" src="${cert.image}" alt="${cert.title}">
+                <img class="cert-image" src="${cert.image}" alt="${cert.title}" onerror="this.src='https://via.placeholder.com/250x160/4a90e2/white?text=${encodeURIComponent(cert.title)}'">
                 <div class="cert-title">${cert.title}</div>
                 <div class="cert-issuer">${cert.issuer} • ${cert.date}</div>
             </div>
         `).join('');
     }
 
-    // Download Resume
+    // Download Resume - Opens your PDF
     function downloadResume() {
-        alert("To add your actual resume: Upload your PDF file and update the downloadResume() function.");
-        // window.open('Shilpa_S_Resume.pdf', '_blank');
+        window.open('Shilpa_Data_Analyst_Resume.pdf', '_blank');
     }
 
     // Initialize
