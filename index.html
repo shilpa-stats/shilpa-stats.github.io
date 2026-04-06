@@ -9,122 +9,42 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Light Mode (Default) */
-        :root {
-            --bg-primary: #f8f9fa;
-            --bg-secondary: #ffffff;
-            --text-primary: #2c3e50;
-            --text-secondary: #555;
-            --accent-1: #1e3c72;
-            --accent-2: #2a5298;
-            --accent-light: #e8f0fe;
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            --border-color: #e0e0e0;
-        }
-
-        /* Dark Mode */
-        body.dark {
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
-            --text-primary: #e0e0e0;
-            --text-secondary: #b0b0b0;
-            --accent-1: #4a90e2;
-            --accent-2: #6c5ce7;
-            --accent-light: #2c3e50;
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            --border-color: #2c3e50;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
+            background-color: #f0f2f5;
+            color: #1a1a2e;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
+        /* Main Layout - Two Column */
+        .portfolio-container {
+            display: flex;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            background: white;
+            min-height: 100vh;
         }
 
-        /* Navbar */
-        .navbar {
-            background: var(--bg-secondary);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        /* Left Sidebar - Photo & Details */
+        .sidebar {
+            width: 30%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            height: 100vh;
+            overflow-y: auto;
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
+        .profile-photo {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-2);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-2);
-        }
-
-        .theme-toggle {
-            background: var(--accent-light);
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            color: var(--text-primary);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section - Left Aligned with Photo */
-        .hero {
-            background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
-            color: white;
-            padding: 60px 0;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        .hero-photo {
-            flex-shrink: 0;
-        }
-
-        .hero-photo img {
+        .profile-photo img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
@@ -133,142 +53,140 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
+        .sidebar h1 {
+            font-size: 2rem;
             margin-bottom: 10px;
+            text-align: center;
         }
 
-        .hero-text .tagline {
-            font-size: 1.3rem;
+        .sidebar .title {
+            text-align: center;
+            font-size: 1.1rem;
             opacity: 0.9;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
         }
 
-        .hero-text .location {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 20px;
+        .contact-info {
+            margin-bottom: 30px;
         }
 
-        .download-btn {
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .contact-item .emoji {
+            font-size: 1.2rem;
+            min-width: 30px;
+        }
+
+        .resume-btn {
             background: white;
-            color: var(--accent-2);
+            color: #1e3c72;
             border: none;
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
             font-size: 1rem;
+            width: 100%;
+            margin-top: 20px;
             transition: transform 0.3s;
         }
 
-        .download-btn:hover {
-            transform: scale(1.05);
+        .resume-btn:hover {
+            transform: scale(1.02);
         }
 
-        /* Stats Cards */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: -30px;
-            margin-bottom: 60px;
-            flex-wrap: wrap;
-        }
-
-        .stat-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 25px 40px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--accent-2);
+        /* Right Content */
+        .main-content {
+            width: 70%;
+            padding: 40px 50px;
+            background: #f8f9fa;
         }
 
         /* Section Styles */
         .section {
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 50px;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: var(--accent-1);
-            text-align: center;
+            font-size: 1.8rem;
+            color: #1e3c72;
+            margin-bottom: 25px;
+            border-left: 4px solid #2a5298;
+            padding-left: 15px;
         }
 
         /* About Me */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            background: var(--bg-secondary);
-            padding: 30px;
+        .about-text {
+            background: white;
+            padding: 25px;
             border-radius: 12px;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            line-height: 1.8;
+            color: #555;
         }
 
-        .skills-grid {
+        /* Skills */
+        .skills-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 12px;
         }
 
-        .skill-badge {
-            background: var(--accent-light);
-            color: var(--accent-1);
-            padding: 10px 25px;
-            border-radius: 30px;
+        .skill-tag {
+            background: white;
+            border: 1px solid #2a5298;
+            color: #2a5298;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
             font-weight: 500;
-            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #2a5298;
+            color: white;
+            cursor: pointer;
         }
 
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .project-card {
-            background: var(--bg-secondary);
+            background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
 
-        .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+        .project-icon {
+            height: 120px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3rem;
+            color: white;
         }
 
         .project-info {
@@ -276,97 +194,136 @@
         }
 
         .project-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
+            color: #1e3c72;
             margin-bottom: 8px;
-            color: var(--accent-1);
         }
 
         .project-tech {
-            color: var(--accent-2);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            color: #2a5298;
             font-weight: 500;
         }
 
-        /* Certificates Grid */
+        /* Certificates Grid with Images */
         .certificates-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 25px;
-            margin-top: 30px;
         }
 
         .cert-card {
-            background: var(--bg-secondary);
+            background: white;
             border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             transition: transform 0.3s;
+            text-align: center;
+            padding: 20px;
         }
 
         .cert-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
-        .cert-icon {
-            font-size: 3rem;
+        .cert-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
             margin-bottom: 15px;
+            background: #f0f2f5;
         }
 
         .cert-title {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: bold;
-            margin-bottom: 8px;
-            color: var(--accent-1);
+            color: #1e3c72;
+            margin-bottom: 5px;
         }
 
         .cert-issuer {
-            color: var(--accent-2);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-
-        .cert-date {
-            color: var(--text-secondary);
             font-size: 0.8rem;
+            color: #666;
         }
 
         /* Experience */
-        .experience-item, .virtual-item {
-            background: var(--bg-secondary);
-            padding: 25px;
+        .exp-card {
+            background: white;
+            padding: 20px;
             border-radius: 12px;
             margin-bottom: 20px;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .exp-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            color: var(--accent-1);
+            color: #1e3c72;
             margin-bottom: 5px;
         }
 
         .exp-company {
-            color: var(--accent-2);
+            color: #2a5298;
             font-weight: 500;
+            font-size: 0.9rem;
             margin-bottom: 8px;
         }
 
         .exp-date {
             color: #888;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             margin-bottom: 12px;
         }
 
         .exp-desc {
-            color: var(--text-secondary);
+            color: #555;
+            font-size: 0.9rem;
             margin-left: 20px;
         }
 
         .exp-desc li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+        }
+
+        /* Let's Connect Section */
+        .connect-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .connect-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .connect-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .connect-btn {
+            background: white;
+            color: #1e3c72;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .connect-btn:hover {
+            transform: scale(1.05);
         }
 
         /* Modal */
@@ -384,9 +341,9 @@
         }
 
         .modal-content {
-            background: var(--bg-secondary);
+            background: white;
             border-radius: 12px;
-            max-width: 600px;
+            max-width: 550px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
@@ -400,29 +357,24 @@
             right: 20px;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--text-primary);
+            color: #666;
         }
 
         .modal-title {
-            font-size: 1.5rem;
-            color: var(--accent-1);
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: #1e3c72;
+            margin-bottom: 10px;
         }
 
         .modal-tech {
-            color: var(--accent-2);
+            color: #2a5298;
             margin-bottom: 20px;
             font-weight: 500;
         }
 
-        .modal-desc {
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
         .modal-details {
             list-style: none;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .modal-details li {
@@ -435,264 +387,154 @@
             content: "▹";
             position: absolute;
             left: 0;
-            color: var(--accent-2);
+            color: #2a5298;
         }
 
-        .modal-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--accent-2);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Contact */
-        .contact {
-            text-align: center;
-            background: var(--accent-1);
-            color: white;
-            padding: 60px 0;
-        }
-
-        .contact h2 {
-            margin-bottom: 20px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-
-        .contact-btn {
-            background: white;
-            color: var(--accent-1);
-            padding: 12px 25px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s;
-            display: inline-block;
-        }
-
-        .contact-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Scroll Top */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--accent-2);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            border: none;
-            font-size: 1.2rem;
-            z-index: 1000;
-        }
-
-        .scroll-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: var(--bg-secondary);
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: var(--bg-secondary);
+        /* Responsive */
+        @media (max-width: 900px) {
+            .portfolio-container {
                 flex-direction: column;
-                padding: 20px;
-                text-align: center;
             }
-            .nav-links.active {
-                display: flex;
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
             }
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            .stats {
-                gap: 15px;
-            }
-            .stat-card {
-                padding: 15px 25px;
+            .main-content {
+                width: 100%;
+                padding: 30px 20px;
             }
         }
     </style>
 </head>
 <body>
-
-<!-- Navbar -->
-<nav class="navbar">
-    <div class="container nav-container">
-        <div class="logo">Shilpa S</div>
-        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
-        <div class="nav-links" id="navLinks">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#certificates">Certificates</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
-            <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+<div class="portfolio-container">
+    <!-- Left Sidebar - Photo + Contact Details -->
+    <div class="sidebar">
+        <div class="profile-photo">
+            <img src="shilpa-photo.jpg" alt="Shilpa S" id="profilePhoto" onerror="this.src='https://via.placeholder.com/180x180/4a90e2/white?text=SHILPA'">
         </div>
-    </div>
-</nav>
-
-<!-- Hero Section with Photo on Left -->
-<div class="hero" id="home">
-    <div class="container hero-content">
-        <div class="hero-photo">
-            <!-- Replace 'your-photo.jpg' with your actual photo file name -->
-            <img src="https://via.placeholder.com/180x180/4a90e2/white?text=SHILPA" alt="Shilpa S" id="profilePhoto">
+        <h1>Shilpa S</h1>
+        <div class="title">Data Analyst | MSc Statistics</div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="emoji">📧</span>
+                <span>shilpa.s@email.com</span>
+            </div>
+            <div class="contact-item">
+                <span class="emoji">📱</span>
+                <span>+91 98765 43210</span>
+            </div>
+            <div class="contact-item">
+                <span class="emoji">📍</span>
+                <span>Kerala, India</span>
+            </div>
+            <div class="contact-item">
+                <span class="emoji">🔗</span>
+                <span>linkedin.com/in/shilpa-s</span>
+            </div>
+            <div class="contact-item">
+                <span class="emoji">🐙</span>
+                <span>github.com/shilpa-s</span>
+            </div>
         </div>
-        <div class="hero-text">
-            <h1>Shilpa S</h1>
-            <div class="tagline">Data Analyst | MSc Statistics</div>
-            <div class="location">📍 Kerala, India</div>
-            <button class="download-btn" onclick="downloadResume()">📄 Download Resume</button>
+        
+        <button class="resume-btn" onclick="downloadResume()">📄 Resume ↓</button>
+    </div>
+
+    <!-- Right Main Content -->
+    <div class="main-content">
+        <!-- About Me -->
+        <div class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-text">
+                Hello, I am Shilpa — an MSc Statistics graduate with a strong foundation in statistics and a real passion for making sense of data. Using tools like Python, SQL, Power BI, Tableau, and Excel, I dig into data to uncover insights that help businesses make smarter decisions. I've completed several real-world projects showcasing my hands-on skills and dedication to creating data-driven solutions.
+            </div>
         </div>
-    </div>
-</div>
 
-<!-- Stats -->
-<div class="container">
-    <div class="stats">
-        <div class="stat-card">
-            <div class="stat-number">4+</div>
-            <div class="stat-label">Projects</div>
+        <!-- Key Skills -->
+        <div class="section">
+            <h2 class="section-title">Key Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">🐍 Python</span>
+                <span class="skill-tag">📊 Power BI</span>
+                <span class="skill-tag">🗄️ SQL</span>
+                <span class="skill-tag">📈 Tableau</span>
+                <span class="skill-tag">📉 R</span>
+                <span class="skill-tag">🤖 Machine Learning</span>
+                <span class="skill-tag">📐 Statistics</span>
+                <span class="skill-tag">📊 Excel</span>
+            </div>
         </div>
-        <div class="stat-card">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Virtual Exp.</div>
+
+        <!-- Projects -->
+        <div class="section">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid" id="projectsGrid"></div>
         </div>
-        <div class="stat-card">
-            <div class="stat-number">7+</div>
-            <div class="stat-label">Tools</div>
+
+        <!-- Certificates with Images -->
+        <div class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certificates-grid" id="certificatesGrid"></div>
         </div>
-        <div class="stat-card">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Certifications</div>
+
+        <!-- Experience -->
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="exp-card">
+                <div class="exp-title">Research and IT Solutions Intern</div>
+                <div class="exp-company">ICT Academy of Kerala</div>
+                <div class="exp-date">Sept 2025 - Jan 2026 | Kerala, India</div>
+                <ul class="exp-desc">
+                    <li>Implemented training analytics dashboards using Power BI and Python covering 180+ programs</li>
+                    <li>Designed 10+ KPIs to track learner progress and faculty performance</li>
+                    <li>Created interactive visual reports for training performance monitoring</li>
+                </ul>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-title">British Airways - Data Science Virtual Experience</div>
+                <div class="exp-company">Forage (Remote)</div>
+                <div class="exp-date">2026</div>
+                <ul class="exp-desc">
+                    <li>Trained Random Forest on 50K+ records achieving ~85% prediction accuracy</li>
+                    <li>Identified key booking drivers: purchase lead time, route, length of stay</li>
+                </ul>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-title">Lloyds Banking Group - Data Science Virtual Experience</div>
+                <div class="exp-company">Forage (Remote)</div>
+                <div class="exp-date">2026</div>
+                <ul class="exp-desc">
+                    <li>Developed Logistic Regression & Random Forest models (78% accuracy)</li>
+                    <li>Engineered 10+ predictive features, identified churn drivers</li>
+                </ul>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-title">Tata - Data Analytics Virtual Experience</div>
+                <div class="exp-company">Forage (Remote)</div>
+                <div class="exp-date">2026</div>
+                <ul class="exp-desc">
+                    <li>Cleaned & validated 500K+ retail transaction records</li>
+                    <li>Performed revenue trend analysis across 12 months</li>
+                </ul>
+            </div>
         </div>
-    </div>
-</div>
 
-<!-- About -->
-<div class="container section" id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-content">
-        <p>Hi, I'm Shilpa — an MSc Statistics graduate passionate about transforming data into actionable insights. I specialize in Python, SQL, Power BI, Tableau, and statistical modeling. With hands-on experience in machine learning, time series forecasting, and data visualization, I help businesses make data-driven decisions. I'm eager to bring my analytical skills to a dynamic team!</p>
-    </div>
-    <div class="skills-grid">
-        <span class="skill-badge">🐍 Python</span>
-        <span class="skill-badge">📊 Power BI</span>
-        <span class="skill-badge">🗄️ SQL</span>
-        <span class="skill-badge">📈 Tableau</span>
-        <span class="skill-badge">📉 R</span>
-        <span class="skill-badge">🤖 ML</span>
-        <span class="skill-badge">📐 Statistics</span>
-    </div>
-</div>
-
-<!-- Projects -->
-<div class="container section" id="projects">
-    <h2 class="section-title">My Projects</h2>
-    <div class="projects-grid" id="projectsGrid"></div>
-</div>
-
-<!-- Certificates Section -->
-<div class="container section" id="certificates">
-    <h2 class="section-title">📜 Certifications</h2>
-    <div class="certificates-grid" id="certificatesGrid"></div>
-</div>
-
-<!-- Experience -->
-<div class="container section" id="experience">
-    <h2 class="section-title">Experience</h2>
-    
-    <div class="experience-item">
-        <div class="exp-title">Research and IT Solutions Intern</div>
-        <div class="exp-company">ICT Academy of Kerala</div>
-        <div class="exp-date">Sept 2025 - Jan 2026 | Kerala, India</div>
-        <ul class="exp-desc">
-            <li>Implemented training analytics dashboards using Power BI and Python covering 180+ programs and 27 trainers</li>
-            <li>Designed 10+ KPIs to track learner progress and faculty performance</li>
-            <li>Cleaned, transformed and modeled datasets using Power Query</li>
-            <li>Created interactive visual reports to support training performance monitoring</li>
-        </ul>
-    </div>
-
-    <h3 style="margin: 30px 0 20px; color: var(--accent-1);">💻 Virtual Experience</h3>
-    
-    <div class="virtual-item">
-        <div class="exp-title">British Airways Data Science Virtual Experience</div>
-        <div class="exp-company">Forage (Remote) - 2026</div>
-        <ul class="exp-desc">
-            <li>Trained Random Forest on 50K+ customer records achieving ~85% prediction accuracy</li>
-            <li>Identified key booking drivers: purchase lead time, route, length of stay</li>
-            <li>Conducted 5-fold cross-validation for customer conversion insights</li>
-        </ul>
-    </div>
-
-    <div class="virtual-item">
-        <div class="exp-title">Lloyds Banking Group Data Science Virtual Experience</div>
-        <div class="exp-company">Forage (Remote) - March 2026</div>
-        <ul class="exp-desc">
-            <li>Developed Logistic Regression & Random Forest models (78% accuracy)</li>
-            <li>Engineered 10+ predictive features, used ROC-AUC, precision, recall</li>
-            <li>Generated churn driver insights for retention strategies</li>
-        </ul>
-    </div>
-
-    <div class="virtual-item">
-        <div class="exp-title">Tata Data Analytics Virtual Experience</div>
-        <div class="exp-company">Forage (Remote) - Feb 2026</div>
-        <ul class="exp-desc">
-            <li>Cleaned & validated 500K+ retail transaction records</li>
-            <li>Performed revenue trend analysis across 12 months, identified seasonal patterns</li>
-            <li>Developed Excel visualizations for business insights</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Contact -->
-<div class="contact" id="contact">
-    <div class="container">
-        <h2>Let's Connect</h2>
-        <p>I'm always open to discussing new projects, creative ideas, or opportunities!</p>
-        <div class="contact-links">
-            <a href="mailto:shilpa.s@email.com" class="contact-btn">📧 Email Me</a>
-            <a href="#" class="contact-btn">🔗 LinkedIn</a>
-            <a href="#" class="contact-btn">🐙 GitHub</a>
+        <!-- Let's Connect Section -->
+        <div class="connect-section">
+            <h3>Let's Connect</h3>
+            <p>Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your data-driven journey.</p>
+            <div class="connect-buttons">
+                <a href="mailto:shilpa.s@email.com" class="connect-btn">📧 Email</a>
+                <a href="#" class="connect-btn">🔗 LinkedIn</a>
+                <a href="#" class="connect-btn">🐙 GitHub</a>
+            </div>
         </div>
     </div>
 </div>
@@ -703,18 +545,11 @@
         <span class="modal-close" onclick="closeModal()">&times;</span>
         <div class="modal-title" id="modalTitle"></div>
         <div class="modal-tech" id="modalTech"></div>
-        <div class="modal-desc" id="modalDesc"></div>
+        <div id="modalDesc"></div>
         <ul class="modal-details" id="modalDetails"></ul>
-        <a href="#" id="modalLink" class="modal-link" target="_blank">View on GitHub →</a>
+        <a href="#" id="modalLink" class="connect-btn" style="display: inline-block; margin-top: 15px;" target="_blank">View on GitHub →</a>
     </div>
 </div>
-
-<!-- Scroll to Top -->
-<button class="scroll-top" onclick="scrollToTop()">↑</button>
-
-<footer>
-    <p>© 2026 Shilpa S | Data Analyst Portfolio</p>
-</footer>
 
 <script>
     // Projects Data
@@ -723,12 +558,10 @@
             title: "Rice Yield Time Series Forecasting",
             tech: "R, ARIMA, Time Series Analysis",
             shortDesc: "Processed 22 years of seasonal crop yield data to identify production trends",
-            fullDesc: "This project focused on forecasting rice yield using time series analysis techniques. I processed 22 years of seasonal crop yield data to identify production trends and patterns.",
             details: [
                 "Developed ARIMA forecasting model reducing prediction error by 19%",
                 "Evaluated models using RMSE, MAE, MAPE and Theil's U",
-                "Detected 2018 flood anomaly using outlier detection techniques",
-                "Performed comprehensive exploratory data analysis on seasonal patterns"
+                "Detected 2018 flood anomaly using outlier detection techniques"
             ],
             link: "https://github.com/yourusername/rice-forecasting",
             icon: "🌾"
@@ -737,25 +570,21 @@
             title: "Retail Store Trial Performance",
             tech: "Python, Pandas, Statistical Analysis",
             shortDesc: "Analyzed 260K+ transactions to evaluate store layout trial impact",
-            fullDesc: "Analyzed large-scale retail transaction data to evaluate the impact of a new store layout trial on sales performance.",
             details: [
                 "Analyzed 260K+ transactions to evaluate store layout trial impact",
                 "Identified control stores using correlation analysis",
-                "Quantified 33% sales uplift using statistical testing",
-                "Delivered data-driven business recommendations"
+                "Quantified 33% sales uplift using statistical testing"
             ],
             link: "https://github.com/yourusername/retail-analysis",
             icon: "🏪"
         },
         {
             title: "Inventory & Supply Chain Dashboard",
-            tech: "Power BI, Excel, Data Visualization",
+            tech: "Power BI, Excel",
             shortDesc: "Developed interactive Power BI dashboard tracking inventory KPIs",
-            fullDesc: "Created a comprehensive Power BI dashboard for inventory and supply chain analytics to help stakeholders monitor key metrics.",
             details: [
                 "Developed Power BI dashboard tracking inventory KPIs",
                 "Evaluated inventory turnover and lead time metrics",
-                "Developed KPI cards and interactive filters",
                 "Enabled regional performance comparison"
             ],
             link: "https://github.com/yourusername/inventory-dashboard",
@@ -763,13 +592,11 @@
         },
         {
             title: "Customer Churn Prediction",
-            tech: "Python, Machine Learning, Random Forest",
+            tech: "Python, Machine Learning",
             shortDesc: "Predictive model to identify customers at risk of churning",
-            fullDesc: "Built machine learning models to predict customer churn for a telecommunications company, helping retention efforts.",
             details: [
-                "Trained Random Forest classification model on 50K+ customer records achieving ~85% prediction accuracy",
-                "Executed data preprocessing and feature engineering on 10+ variables",
-                "Identified key booking drivers using feature importance analysis",
+                "Trained Random Forest on 50K+ records achieving ~85% accuracy",
+                "Executed feature engineering on 10+ variables",
                 "Conducted 5-fold cross validation for model robustness"
             ],
             link: "https://github.com/yourusername/churn-prediction",
@@ -777,34 +604,34 @@
         }
     ];
 
-    // Certificates Data
+    // Certificates with placeholder images - Replace with your actual certificate images
     const certificates = [
         {
             title: "Microsoft Power BI Data Analyst Professional",
             issuer: "Microsoft via Coursera",
             date: "2026",
-            icon: "📊"
+            image: "https://via.placeholder.com/250x160/4a90e2/white?text=Power+BI+Certificate"
         },
         {
             title: "Certified Specialist in Data Science & Analytics",
             issuer: "ICT Academy of Kerala",
             date: "2025",
-            icon: "📈"
+            image: "https://via.placeholder.com/250x160/2a5298/white?text=Data+Science+Certificate"
         },
         {
             title: "Tableau 10 Essential Training",
             issuer: "LinkedIn Learning",
             date: "2025",
-            icon: "📉"
+            image: "https://via.placeholder.com/250x160/1e3c72/white?text=Tableau+Certificate"
         }
     ];
 
     // Display Projects
     function displayProjects() {
         const grid = document.getElementById('projectsGrid');
-        grid.innerHTML = projects.map(project => `
-            <div class="project-card" onclick="showProjectDetails(${projects.indexOf(project)})">
-                <div class="project-image">${project.icon}</div>
+        grid.innerHTML = projects.map((project, index) => `
+            <div class="project-card" onclick="showProjectDetails(${index})">
+                <div class="project-icon">${project.icon}</div>
                 <div class="project-info">
                     <div class="project-title">${project.title}</div>
                     <div class="project-tech">${project.tech}</div>
@@ -813,12 +640,12 @@
         `).join('');
     }
 
-    // Show Project Details Modal
+    // Show Project Modal
     function showProjectDetails(index) {
         const project = projects[index];
         document.getElementById('modalTitle').innerText = project.title;
         document.getElementById('modalTech').innerHTML = `🛠️ ${project.tech}`;
-        document.getElementById('modalDesc').innerHTML = project.fullDesc || project.shortDesc;
+        document.getElementById('modalDesc').innerHTML = `<p>${project.shortDesc}</p>`;
         
         const detailsList = document.getElementById('modalDetails');
         detailsList.innerHTML = project.details.map(detail => `<li>${detail}</li>`).join('');
@@ -832,7 +659,6 @@
         document.getElementById('projectModal').style.display = 'none';
     }
 
-    // Close modal when clicking outside
     window.onclick = function(event) {
         const modal = document.getElementById('projectModal');
         if (event.target === modal) {
@@ -840,77 +666,23 @@
         }
     }
 
-    // Display Certificates
+    // Display Certificates with Images
     function displayCertificates() {
         const grid = document.getElementById('certificatesGrid');
         grid.innerHTML = certificates.map(cert => `
             <div class="cert-card">
-                <div class="cert-icon">${cert.icon}</div>
+                <img class="cert-image" src="${cert.image}" alt="${cert.title}">
                 <div class="cert-title">${cert.title}</div>
-                <div class="cert-issuer">${cert.issuer}</div>
-                <div class="cert-date">${cert.date}</div>
+                <div class="cert-issuer">${cert.issuer} • ${cert.date}</div>
             </div>
         `).join('');
     }
 
-    // Dark Mode Toggle
-    function toggleTheme() {
-        document.body.classList.toggle('dark');
-        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-    }
-
-    // Load saved theme
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark');
-    }
-
-    // Mobile Menu Toggle
-    function toggleMenu() {
-        document.getElementById('navLinks').classList.toggle('active');
-    }
-
-    // Scroll to Top
-    window.addEventListener('scroll', () => {
-        const scrollBtn = document.querySelector('.scroll-top');
-        if (window.scrollY > 300) {
-            scrollBtn.classList.add('show');
-        } else {
-            scrollBtn.classList.remove('show');
-        }
-    });
-
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-                if (window.innerWidth <= 768) {
-                    toggleMenu();
-                }
-            }
-        });
-    });
-
     // Download Resume
     function downloadResume() {
-        // To add your actual PDF: upload your PDF file and replace the URL below
+        alert("To add your actual resume: Upload your PDF file and update the downloadResume() function.");
         // window.open('Shilpa_S_Resume.pdf', '_blank');
-        alert("To add your actual resume PDF: Upload your PDF file to the same folder and update the downloadResume() function with your file name.");
     }
-
-    // Add your photo - Replace the placeholder with your actual photo
-    // To add your photo: 
-    // 1. Save your photo as 'shilpa-photo.jpg' in the same folder
-    // 2. Replace the src in the img tag below:
-    document.getElementById('profilePhoto').src = 'shilpa-photo.jpg';
-    // If the photo doesn't load, uncomment the line below and replace with your actual image path:
-    // document.getElementById('profilePhoto').src = 'your-actual-photo-filename.jpg';
 
     // Initialize
     displayProjects();
