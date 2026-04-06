@@ -188,14 +188,11 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
 
-        .project-icon {
-            height: 120px;
+        .project-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
             background: linear-gradient(135deg, #1e3c72, #2a5298);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
         }
 
         .project-info {
@@ -230,6 +227,7 @@
             transition: transform 0.3s;
             text-align: center;
             padding: 20px;
+            cursor: pointer;
         }
 
         .cert-card:hover {
@@ -335,7 +333,7 @@
             transform: scale(1.05);
         }
 
-        /* Modal */
+        /* Modal for Projects */
         .modal {
             display: none;
             position: fixed;
@@ -397,6 +395,46 @@
             position: absolute;
             left: 0;
             color: #2a5298;
+        }
+
+        /* Modal for Certificates - Full Image View */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .image-modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
 
         /* Responsive */
@@ -560,8 +598,16 @@
     </div>
 </div>
 
+<!-- Modal for Certificate Full Image View -->
+<div class="image-modal" id="imageModal" onclick="closeImageModal()">
+    <div class="image-modal-content">
+        <button class="image-modal-close" onclick="closeImageModal()">✕</button>
+        <img id="fullCertificateImage" src="" alt="Certificate">
+    </div>
+</div>
+
 <script>
-    // Projects Data with your actual GitHub links
+    // Projects Data with your actual GitHub links and images
     const projects = [
         {
             title: "Rice Yield Time Series Forecasting",
@@ -574,7 +620,7 @@
                 "Performed comprehensive exploratory data analysis on seasonal patterns"
             ],
             link: "https://github.com/shilpa-stats/RICE-YIELD-FORECASTING",
-            icon: "🌾"
+            image: "rice-project_1.png"
         },
         {
             title: "Retail Store Trial Performance Analysis",
@@ -587,7 +633,7 @@
                 "Delivered data-driven business recommendations for store expansion"
             ],
             link: "https://github.com/shilpa-stats/RETAIL-ANALYTICS-PROJECT",
-            icon: "🏪"
+            image: "retail-project_3.png"
         },
         {
             title: "Inventory & Supply Chain Dashboard",
@@ -600,7 +646,7 @@
                 "Enabled regional performance comparison for supply chain optimization"
             ],
             link: "https://github.com/shilpa-stats/SUPPLY-CHAIN-INVENTORY-DASHBOARD",
-            icon: "📦"
+            image: "inventory-project_2.png"
         },
         {
             title: "Mental Health Analysis During COVID-19",
@@ -613,11 +659,11 @@
                 "Generated insights on demographic variations in mental health impact"
             ],
             link: "https://github.com/shilpa-stats/MENTAL-HEALTH-ANALYSIS-DURING-COVID",
-            icon: "🧠"
+            image: "mental-project_4.png"
         }
     ];
 
-    // Certificates - Replace placeholder images with your actual certificate images
+    // Certificates - Replace with your actual certificate images
     const certificates = [
         {
             title: "Microsoft Power BI Data Analyst Professional",
@@ -644,7 +690,7 @@
         const grid = document.getElementById('projectsGrid');
         grid.innerHTML = projects.map((project, index) => `
             <div class="project-card" onclick="showProjectDetails(${index})">
-                <div class="project-icon">${project.icon}</div>
+                <img class="project-image" src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/300x160/1e3c72/white?text=${encodeURIComponent(project.title)}'">
                 <div class="project-info">
                     <div class="project-title">${project.title}</div>
                     <div class="project-tech">${project.tech}</div>
@@ -672,7 +718,7 @@
         document.getElementById('projectModal').style.display = 'none';
     }
 
-    // Close modal when clicking outside
+    // Close project modal when clicking outside
     window.onclick = function(event) {
         const modal = document.getElementById('projectModal');
         if (event.target === modal) {
@@ -683,13 +729,27 @@
     // Display Certificates
     function displayCertificates() {
         const grid = document.getElementById('certificatesGrid');
-        grid.innerHTML = certificates.map(cert => `
-            <div class="cert-card">
+        grid.innerHTML = certificates.map((cert, index) => `
+            <div class="cert-card" onclick="showFullCertificate(${index})">
                 <img class="cert-image" src="${cert.image}" alt="${cert.title}" onerror="this.src='https://via.placeholder.com/250x160/4a90e2/white?text=${encodeURIComponent(cert.title)}'">
                 <div class="cert-title">${cert.title}</div>
                 <div class="cert-issuer">${cert.issuer} • ${cert.date}</div>
             </div>
         `).join('');
+    }
+
+    // Show Full Certificate Image
+    function showFullCertificate(index) {
+        const cert = certificates[index];
+        const modal = document.getElementById('imageModal');
+        const img = document.getElementById('fullCertificateImage');
+        img.src = cert.image;
+        modal.style.display = 'flex';
+    }
+
+    // Close Image Modal
+    function closeImageModal() {
+        document.getElementById('imageModal').style.display = 'none';
     }
 
     // Download Resume - Opens your PDF
